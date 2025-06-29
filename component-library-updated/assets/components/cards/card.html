@@ -1,0 +1,558 @@
+<style>
+    .card-collection {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 20px;
+        padding: 40px;
+    }
+
+    /* 1. E-commerce Product Card */
+    .card-ecommerce {
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        overflow: hidden;
+        text-align: center;
+        background: #fff;
+        transition: box-shadow 0.3s;
+    }
+
+    .card-ecommerce img {
+        width: 100%;
+    }
+
+    .card-ecommerce-body {
+        padding: 15px;
+    }
+
+    .card-ecommerce h5 {
+        margin: 10px 0 5px;
+        font-weight: 600;
+    }
+
+    .card-ecommerce .price {
+        font-weight: bold;
+        color: #28a745;
+    }
+
+    .card-ecommerce button {
+        background: #007bff;
+        color: #fff;
+        border: none;
+        padding: 8px 15px;
+        margin-top: 10px;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+    .card-ecommerce:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    /* 2. Hotel Booking Card */
+    .card-hotel {
+        background: #f8f9fa;
+        border-radius: 10px;
+        overflow: hidden;
+        font-family: sans-serif;
+    }
+
+    .card-hotel img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+    }
+
+    .card-hotel-body {
+        padding: 15px;
+    }
+
+    .card-hotel .location {
+        color: #555;
+    }
+
+    .card-hotel .stars {
+        color: gold;
+    }
+
+    .card-hotel-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .card-hotel-footer button {
+        background: #17a2b8;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+
+    /* 3. Book Card */
+    .card-book {
+        border: 1px solid #ccc;
+        text-align: center;
+        background: #fff;
+        padding: 10px;
+        border-radius: 8px;
+    }
+
+    .card-book img {
+        width: 100%;
+        max-height: 250px;
+        object-fit: cover;
+    }
+
+    .card-book h5 {
+        margin: 10px 0 5px;
+    }
+
+    .card-book button {
+        background: #dc3545;
+        color: white;
+        padding: 5px 15px;
+        border: none;
+        border-radius: 5px;
+    }
+
+    /* 4. Car Listing Card */
+    .card-car {
+        background: #fff;
+        border-left: 6px solid #007bff;
+        padding: 15px;
+        border-radius: 6px;
+        box-shadow: 0 0 10px #eee;
+    }
+
+    .card-car img {
+        width: 100%;
+    }
+
+    .card-car-body h5 {
+        margin: 10px 0 5px;
+    }
+
+    .card-car span {
+        font-weight: bold;
+        color: #28a745;
+    }
+
+    .card-car button {
+        margin-top: 10px;
+        background: #343a40;
+        color: white;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 4px;
+    }
+
+    /* 5. Computer Component Card */
+    .card-component {
+        background: linear-gradient(to right, #1f4037, #99f2c8);
+        color: white;
+        padding: 15px;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .card-component img {
+        max-width: 100%;
+        border-radius: 10px;
+    }
+
+    .card-component button {
+        background: white;
+        color: #1f4037;
+        border: none;
+        margin-top: 10px;
+        padding: 6px 12px;
+        border-radius: 5px;
+    }
+
+    /* 6. Job Card */
+    .card-job {
+        border: 1px solid #ddd;
+        padding: 15px;
+        border-left: 6px solid #28a745;
+        background: #fff;
+        border-radius: 5px;
+    }
+
+    .card-job button {
+        background: #28a745;
+        color: white;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 5px;
+    }
+
+    /* 7. Profile Card */
+    .card-profile {
+        background: #f0f0f0;
+        text-align: center;
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    .card-profile img {
+        border-radius: 50%;
+    }
+
+    .card-profile h6 {
+        margin-top: 10px;
+    }
+
+    .card-profile button {
+        background: #007bff;
+        color: white;
+        border: none;
+        padding: 5px 15px;
+        border-radius: 5px;
+    }
+
+    /* 8. News Card */
+    .card-news {
+        background: #fff;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-news img {
+        width: 100%;
+    }
+
+    .card-news-body {
+        padding: 10px;
+    }
+
+    .card-news h6 {
+        margin: 5px 0;
+    }
+
+    .card-news button {
+        background: #ffc107;
+        color: black;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 4px;
+    }
+
+    /* 9. Course Card */
+    .card-course {
+        background: #343a40;
+        color: white;
+        padding: 15px;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .card-course img {
+        width: 100%;
+        border-radius: 8px;
+    }
+
+    .card-course button {
+        margin-top: 10px;
+        background: #ffc107;
+        color: black;
+        padding: 6px 12px;
+        border: none;
+        border-radius: 4px;
+    }
+
+    /* 10. Food Card */
+    .card-food {
+        background: #fff8f0;
+        padding: 15px;
+        text-align: center;
+        border-radius: 8px;
+    }
+
+    .card-food img {
+        width: 100%;
+        border-radius: 8px;
+    }
+
+    .card-food button {
+        background: #ff5722;
+        color: white;
+        padding: 6px 14px;
+        border: none;
+        border-radius: 5px;
+    }
+
+    /* 11. Event Card */
+    .card-event {
+        border: 1px dashed #007bff;
+        padding: 20px;
+        background: #e3f2fd;
+        text-align: center;
+        border-radius: 10px;
+    }
+
+    .card-event button {
+        background: #007bff;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 5px;
+    }
+
+    /* 12. Testimonial Card */
+    .card-testimonial {
+        background: #fefefe;
+        padding: 20px;
+        border-left: 5px solid #6c63ff;
+        border-radius: 6px;
+    }
+
+    .card-testimonial p {
+        font-style: italic;
+    }
+
+    .testimonial-user {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .testimonial-user img {
+        border-radius: 50%;
+    }
+
+    /* 13. Music Card */
+    .card-music {
+        background: #000;
+        color: #fff;
+        padding: 15px;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .card-music img {
+        width: 100%;
+        border-radius: 8px;
+    }
+
+    .card-music button {
+        background: #1db954;
+        color: white;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 4px;
+    }
+
+    /* 14. Pricing Card */
+    .card-pricing {
+        background: #f5f5f5;
+        text-align: center;
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+    }
+
+    .card-pricing ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .card-pricing li {
+        margin: 8px 0;
+    }
+
+    .card-pricing button {
+        background: #28a745;
+        color: white;
+        padding: 6px 14px;
+        border: none;
+        border-radius: 5px;
+    }
+
+    /* 15. Service Card */
+    .card-service {
+        background: linear-gradient(135deg, #6e8efb, #a777e3);
+        color: white;
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    .card-service button {
+        margin-top: 10px;
+        background: white;
+        color: #6e8efb;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 5px;
+    }
+</style>
+
+
+
+<div class="card-collection">
+
+    <!-- 1. E-commerce Product Card -->
+    <div class="card-ecommerce">
+        <img src="https://picsum.photos/300/200?random=101" alt="Product">
+        <div class="card-ecommerce-body">
+            <h5>Noise Cancelling Wireless Headphones</h5>
+            <p class="desc">Bluetooth 5.2 | 40 hrs Battery | Built-in Mic</p>
+            <p class="price">$59.99 <span class="old-price">$89.99</span></p>
+            <button>Add to Cart</button>
+        </div>
+    </div>
+
+    <!-- 2. Hotel Booking Card -->
+    <div class="card-hotel">
+        <img src="https://picsum.photos/300/200?random=102" alt="Hotel">
+        <div class="card-hotel-body">
+            <h5>Seaside Paradise Resort</h5>
+            <p class="location">📍 Cox's Bazar, Bangladesh</p>
+            <p class="stars">⭐⭐⭐⭐☆ (425 reviews)</p>
+            <ul class="features">
+                <li>Free Wi-Fi</li>
+                <li>Breakfast Included</li>
+                <li>Pool & Gym Access</li>
+            </ul>
+            <div class="card-hotel-footer">
+                <span class="price">$120/night</span>
+                <button>Book Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Book Card -->
+    <div class="card-book">
+        <img src="https://picsum.photos/200/250?random=103" alt="Book">
+        <h5>Atomic Habits: Tiny Changes, Remarkable Results</h5>
+        <p class="author">By James Clear</p>
+        <p class="genre">📚 Self-help, Productivity</p>
+        <p class="price">$14.99</p>
+        <button>Buy Now</button>
+    </div>
+
+    <!-- 4. Car Listing Card -->
+    <div class="card-car">
+        <img src="https://picsum.photos/300/200?random=104" alt="Car">
+        <div class="card-car-body">
+            <h5>2022 Ford Mustang GT</h5>
+            <p>5.0L V8 Engine | 0-60 in 4.2s</p>
+            <ul>
+                <li>Automatic Transmission</li>
+                <li>Sport Mode | Apple CarPlay</li>
+                <li>Mileage: 15,000 km</li>
+            </ul>
+            <span class="price">$32,000</span>
+            <button>View Details</button>
+        </div>
+    </div>
+
+    <!-- 5. Computer Component Card -->
+    <div class="card-component">
+        <img src="https://picsum.photos/300/200?random=105" alt="GPU">
+        <h5>NVIDIA GeForce RTX 4080</h5>
+        <p class="spec">16GB GDDR6X | PCIe 4.0 | Ray Tracing</p>
+        <p class="availability">In Stock</p>
+        <button>Check Price</button>
+    </div>
+
+    <!-- 6. Job Card -->
+    <div class="card-job">
+        <h5>Frontend Developer (React.js)</h5>
+        <p>👨‍💻 Company: DevSolutions Ltd.</p>
+        <p>📍 Remote | 💰 Salary: $3000/mo</p>
+        <ul>
+            <li>2+ yrs experience</li>
+            <li>Next.js, Tailwind CSS, REST API</li>
+        </ul>
+        <button>Apply Now</button>
+    </div>
+
+    <!-- 7. Profile Card -->
+    <div class="card-profile">
+        <img src="https://picsum.photos/100?random=106" alt="User" width="100">
+        <h6>Emily Stone</h6>
+        <p>🎨 UI/UX Designer</p>
+        <p>Based in Berlin | 4 yrs experience</p>
+        <button>Follow</button>
+    </div>
+
+    <!-- 8. News Card -->
+    <div class="card-news">
+        <img src="https://picsum.photos/300/180?random=107" alt="News">
+        <div class="card-news-body">
+            <h6>Tech Expo 2025: All You Need to Know</h6>
+            <p>The largest technology conference returns to Silicon Valley this fall.</p>
+            <p class="date">🗓️ June 18, 2025</p>
+            <button>Read More</button>
+        </div>
+    </div>
+
+    <!-- 9. Course Card -->
+    <div class="card-course">
+        <img src="https://picsum.photos/300/200?random=108" alt="Course">
+        <h5>Mastering React.js - Beginner to Pro</h5>
+        <p>Instructor: John Doe | 12 Hours | Certificate</p>
+        <p>⭐ 4.8 (1,250 students)</p>
+        <button>Enroll Now</button>
+    </div>
+
+    <!-- 10. Food Card -->
+    <div class="card-food">
+        <img src="https://picsum.photos/300/200?random=109" alt="Burger">
+        <h5>Spicy Beef Cheese Burger</h5>
+        <p>🍔 Double Patty | Fresh Lettuce | Secret Sauce</p>
+        <p class="price">Only $6.99</p>
+        <button>Order Now</button>
+    </div>
+
+    <!-- 11. Event Card -->
+    <div class="card-event">
+        <h5>Startup Founders Meetup 2025</h5>
+        <p>Join 100+ tech founders from around the world.</p>
+        <p>📍 Dhaka Innovation Hub</p>
+        <p>🗓️ July 15, 2025 | 🕒 10 AM - 4 PM</p>
+        <button>Register Now</button>
+    </div>
+
+    <!-- 12. Testimonial Card -->
+    <div class="card-testimonial">
+        <p>“This platform helped us grow our sales by 3x in just 6 months. Their UI and support are top notch.”</p>
+        <div class="testimonial-user">
+            <img src="https://picsum.photos/50?random=110" alt="Client" width="50">
+            <div>
+                <strong>Shawn Roy</strong><br>
+                CEO, TechNova Digital
+            </div>
+        </div>
+    </div>
+
+    <!-- 13. Music Card -->
+    <div class="card-music">
+        <img src="https://picsum.photos/300/200?random=111" alt="Album">
+        <h5>Best of EDM 2025</h5>
+        <p>🎧 20 tracks | Various Artists | 1hr 45min</p>
+        <button>Play Album</button>
+    </div>
+
+    <!-- 14. Pricing Card -->
+    <div class="card-pricing">
+        <h5>Pro Plan - Web Hosting</h5>
+        <h6>$49/month</h6>
+        <ul>
+            <li>✅ 100 GB SSD Storage</li>
+            <li>✅ Free SSL + CDN</li>
+            <li>✅ Priority Support</li>
+        </ul>
+        <button>Subscribe</button>
+    </div>
+
+    <!-- 15. Service Card -->
+    <div class="card-service">
+        <h5>Custom Web Design Services</h5>
+        <p>Get a responsive, modern, and fast website tailored to your business.</p>
+        <p>Starting at $299</p>
+        <button>Get a Free Quote</button>
+    </div>
+
+</div>

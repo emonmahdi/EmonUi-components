@@ -1,0 +1,26 @@
+body {
+  overflow-x: hidden;
+}
+
+.sidebar {
+  width: 280px;
+  min-height: 100vh;
+}
+
+.menu-link {
+  display: block;
+  padding: 6px 12px;
+  color: #ffffffb2;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.menu-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-radius: 5px;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
